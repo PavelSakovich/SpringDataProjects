@@ -1,4 +1,4 @@
-package org.example.resource;
+package org.example.service;
 
 import lombok.extern.java.Log;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,5 +52,9 @@ public class ServiceImpl implements EntityService {
     public void deleteAllUsers() {
         userRepository.deleteAll();
         log.info("Users deleted");
+    }
+    public List<User> getUsersByNumberHouse(int house){
+        log.info("List  was got users");
+        return userRepository.getUsersByNumberHouse(house);
     }
 }

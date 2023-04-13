@@ -1,4 +1,4 @@
-package org.example.resource;
+package org.example.service;
 
 import org.example.entity.User;
 
@@ -16,4 +16,6 @@ public interface EntityService {
     void updateUser(User user);
 
     void deleteAllUsers();
+
+    List<User> getUsersByNumberHouse(int house);
 }

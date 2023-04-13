@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@ToString
+@NoArgsConstructor
 @Table(name = "users")
 public class User {
     @Id
@@ -20,15 +20,38 @@ public class User {
     private String lastName;
     @Column(name = "age")
     private int age;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private UserAddress userAddress;
 
-    public User() {
-    }
-
+    //КОнстуктор для обновления пользователя
     public User(int id, String firstName, String lastName, int age) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+    }
+    //КОнстуктор для добавления пользователя
+    public User( String firstName, String lastName, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
 
+    // Конструктор для добавления пользователя и адреса пользователя
+    public User( String firstName, String lastName, int age, UserAddress userAddress) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.userAddress = userAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

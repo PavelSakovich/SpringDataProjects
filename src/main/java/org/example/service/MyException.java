@@ -1,4 +1,4 @@
-package org.example.resource;
+package org.example.service;
 
 public class MyException extends Exception {
     public MyException(String message) {
