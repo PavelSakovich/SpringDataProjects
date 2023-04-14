@@ -1,11 +1,12 @@
-package org.example.resource;
+package org.example.service;
 
 import lombok.extern.java.Log;
-import org.springframework.transaction.annotation.Transactional;
+import org.example.exceptionsProject.UserOutputException;
 import lombok.RequiredArgsConstructor;
 import org.example.entity.User;
 import org.example.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Log
-public class ServiceImpl implements EntityService {
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
@@ -38,8 +39,8 @@ public class ServiceImpl implements EntityService {
     }
 
     @Override
-    public User getUserById(int id) throws MyException {
-        return userRepository.findById(id).orElseThrow(() -> new MyException("User with index " + id + "does not exist"));
+    public User getUserById(int id) throws UserOutputException {
+        return userRepository.findById(id).orElseThrow(() -> new UserOutputException("User with index " + id + "does not exist"));
     }
 
     @Override

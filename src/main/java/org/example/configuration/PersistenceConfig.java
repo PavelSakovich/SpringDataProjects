@@ -4,6 +4,7 @@ package org.example.configuration;
 import lombok.extern.java.Log;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -18,10 +19,10 @@ import java.util.Properties;
 
 @Log
 @EnableTransactionManagement
-@org.springframework.context.annotation.Configuration
+@Configuration
 @EnableJpaRepositories("org.example.repository")
 @ComponentScan("org.example")
-public class Configuration {
+public class PersistenceConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();

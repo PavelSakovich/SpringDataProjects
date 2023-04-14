@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@ToString
 @Table(name = "users")
 public class User {
     @Id
@@ -30,5 +29,15 @@ public class User {
         this.lastName = lastName;
         this.age = age;
 
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
