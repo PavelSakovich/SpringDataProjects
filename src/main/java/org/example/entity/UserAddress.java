@@ -21,6 +21,16 @@ public class UserAddress {
     @JoinColumn(name = "id")
     private User user;
 
+    @Override
+    public String toString() {
+        return "UserAddress{" +
+                "id=" + id +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", house=" + house +
+                '}';
+    }
+
     public UserAddress(String city, String street, int house) {
         this.city = city;
         this.street = street;

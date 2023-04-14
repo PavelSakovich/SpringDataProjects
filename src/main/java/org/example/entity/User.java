@@ -23,22 +23,21 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private UserAddress userAddress;
 
-    //КОнстуктор для обновления пользователя
+
     public User(int id, String firstName, String lastName, int age) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
     }
-    //КОнстуктор для добавления пользователя
-    public User( String firstName, String lastName, int age) {
+
+    public User(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
     }
 
-    // Конструктор для добавления пользователя и адреса пользователя
-    public User( String firstName, String lastName, int age, UserAddress userAddress) {
+    public User(String firstName, String lastName, int age, UserAddress userAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

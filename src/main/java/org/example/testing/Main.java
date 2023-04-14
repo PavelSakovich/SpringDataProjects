@@ -1,15 +1,15 @@
-package org.example.test;
+package org.example.testing;
 
-import org.example.config.Configuration;
-import org.example.service.EntityService;
-import org.example.service.MyException;
+import org.example.configuration.PersistenceConfig;
+import org.example.service.UserService;
+import org.example.exceptionProject.UserOutputException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
-    public static void main(String[] args) throws MyException {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Configuration.class);
+    public static void main(String[] args) throws UserOutputException {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(PersistenceConfig.class);
 //        User user = new User("Павел", "Иванович", 20);
-        EntityService service = applicationContext.getBean(EntityService.class);
+        UserService service = applicationContext.getBean(UserService.class);
 //       service.addUser(new User("Кудрин", "Валентин", 55, new UserAddress("ЛИда", "Кооперативная", 20)));
 //       service.getAllUsers().forEach(System.out::println);
 //        service.updateUser(new User(2, "Нафранович", "Эдуард", 50));
